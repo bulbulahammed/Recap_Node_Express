@@ -1,7 +1,10 @@
-// Read file Non-blocking asynchronous way
-const fs = require('fs');
-// This will work non-blocking asynchronous way.
-fs.readFile('./start.txt', 'utf-8',(err,data)=>{
-    console.log(data);
+const http = require('http');
+
+const server = http.createServer((req,res)=>{
+    console.log(req);
+    res.end("Hello from server");
 });
-console.log("Will read this!");
+
+server.listen(8000,'127.0.0.1'),()=>{
+    console.log("Server is listening at port 8000 local host");
+}
